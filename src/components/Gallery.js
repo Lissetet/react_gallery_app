@@ -24,8 +24,9 @@ const Gallery = () => {
     <div class="photo-container">
       <h2>Results</h2>
       <ul>
-        { !photos ? <NotFound /> :
-          photos.map(photo => <Photo data={photo} />)
+        { 
+          photos.length === 0 ? <NotFound /> :
+          photos.map(photo => <Photo data={photo} key={photo.id}/>)
         }
       </ul>
     </div>
