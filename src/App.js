@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import Nav from "./components/Nav";
 import Gallery from "./components/Gallery";
+import PageNotFound from "./components/PageNotFound";
 import topics from "./data/topics";
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
       <SearchForm />
       <Nav />
       <Routes>
-        <Route index element={<Navigate replace to={topics[0]} />} />
+        <Route index element={<Gallery isIndex={true} />} />
         { topics.map(getRoute) }
         <Route path="search/:tag" element={<Gallery />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );

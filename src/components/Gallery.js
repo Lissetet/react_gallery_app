@@ -6,23 +6,25 @@ import Photo from './Photo';
 import NotFound from './NotFound';
 
 import apiKey from '../config';
-const baseURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}`;
-const urlParams = `&per_page=24&format=json&nojsoncallback=1`;
+const baseURL = `https://www.flickr.com/services/rest/?method=flickr.photos.`;
+const urlParams = `&api_key=${apiKey}&per_page=24&format=json&nojsoncallback=1`;
 
-const Gallery = ({topic}) => {
+
+const Gallery = ({topic, isIndex = false}) => {
   const params = useParams();
   const tag = params.tag || topic;
+  const method = isIndex ? 'getRecent' : `search&tags=${tag}`;
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    axios.get(`${baseURL}&tags=${tag}${urlParams}`)
+    axios.get(`${baseURL}${method}${urlParams}`)
       .then(res => setPhotos(res.data.photos.photo))
       .catch(err => console.log(err));
-  }, [tag]);
+  }, [method]);
 
   return (
     <div className="photo-container">
-      <h2><span>{tag}</span> Photos</h2>
+      <h2><span>{tag || 'Recent'}</span> Photos</h2>
       <ul>
         { 
           photos.length === 0 ? <NotFound /> :

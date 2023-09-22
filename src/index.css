@@ -50,17 +50,21 @@ input {
   margin-bottom: 1em;
 }
 
-.main-nav a {
+.main-nav a, 
+.container-not-found button {
   display: block;
   background: #438bbd;
   border-radius: 3px;
-  padding: 5px;
+  border: 0px;
+  padding: 10px;
   color: #fff;
   text-transform: capitalize;
+  font-size: 1em;
 }
 
 .main-nav .active,
 .main-nav a:hover,
+.container-not-found button:hover,
 .search-form button:hover {
   background-color: #275270;
 }
@@ -96,6 +100,16 @@ input {
 
 .photo-container h2 span {
   text-transform: capitalize;
+}
+
+.container-not-found {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.container-not-found img {
+  width: 100%;
 }
 
 @media only screen and (max-width: 767px)  {
