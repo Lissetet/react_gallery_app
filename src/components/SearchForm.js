@@ -14,14 +14,14 @@ const SearchForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    navigate(`/${input.current.value}`);
+    navigate(`/search/${input.current.value}`);
     e.currentTarget.reset();
   }
 
   return (
-    <form class="search-form" onSubmit={(e) => handleSubmit(e)}>
+    <form className="search-form" onSubmit={(e) => handleSubmit(e)}>
       <input ref={input} type="search" name="search" placeholder="Search" required/>
-      <button type="submit" class="search-button">
+      <button type="submit" className="search-button">
         <Icon />
       </button>
     </form>

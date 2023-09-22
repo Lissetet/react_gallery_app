@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route index element={<Navigate replace to="dogs" />} />
         <Route path="/:topic" element={<Gallery />} />
+        <Route path="search/:topic" element={<Gallery />} />
       </Routes>
     </div>
   );

@@ -20,8 +20,8 @@ const Gallery = () => {
   }, [topic]);
 
   return (
-    <div class="photo-container">
-      <h2>Results</h2>
+    <div className="photo-container">
+      <h2><span>{topic}</span> Photos</h2>
       <ul>
         { 
           photos.length === 0 ? <NotFound /> :

@@ -5,7 +5,7 @@ const topics = ['cats', 'dogs', 'computers'];
 const Nav = () => {
   const link = topic => <li key={topic}><NavLink to={`/${topic}`}>{topic}</NavLink></li>;
   return (
-    <nav class="main-nav">
+    <nav className="main-nav">
       <ul>
         { 
           topics.map(link) 
