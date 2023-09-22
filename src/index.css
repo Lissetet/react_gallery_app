@@ -108,6 +108,13 @@ input {
   margin: 0 auto;
 }
 
+.container-not-found div {
+  display: flex; 
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .container-not-found img {
   width: 100%;
 }
