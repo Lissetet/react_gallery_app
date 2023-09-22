@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import Photo from './Photo';
-import NotFound from './NotFound';
+import PhotoList from './PhotoList';
 
 import apiKey from '../config';
 const baseURL = `https://www.flickr.com/services/rest/?method=flickr.photos.`;
@@ -28,13 +27,7 @@ const Gallery = ({topic, isIndex = false}) => {
   return (
     <div className="photo-container">
       <h2><span>{tag || 'Recent'}</span> Photos</h2>
-      <ul>
-        { 
-          loading ? <h3>Loading...</h3> :
-          photos.length === 0 ? <NotFound /> :
-          photos.map(photo => <Photo data={photo} key={photo.id}/>)
-        }
-      </ul>
+      <PhotoList photos={photos} loading={loading} />
     </div>
   );
 }
