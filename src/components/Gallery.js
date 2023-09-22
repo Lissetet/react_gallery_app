@@ -9,15 +9,16 @@ import apiKey from '../config';
 const baseURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}`;
 const urlParams = `&per_page=24&format=json&nojsoncallback=1`;
 
-const Gallery = () => {
-  const { topic } = useParams();
+const Gallery = ({topic}) => {
+  const params = useParams();
+  const tag = params.tag || topic;
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    axios.get(`${baseURL}&tags=${topic}${urlParams}`)
+    axios.get(`${baseURL}&tags=${tag}${urlParams}`)
       .then(res => setPhotos(res.data.photos.photo))
       .catch(err => console.log(err));
-  }, [topic]);
+  }, [tag]);
 
   return (
     <div className="photo-container">

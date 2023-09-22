@@ -1,15 +1,12 @@
 import { NavLink } from "react-router-dom";
-
-const topics = ['cats', 'dogs', 'computers'];
+import topics from "../data/topics";
 
 const Nav = () => {
   const link = topic => <li key={topic}><NavLink to={`/${topic}`}>{topic}</NavLink></li>;
   return (
     <nav className="main-nav">
       <ul>
-        { 
-          topics.map(link) 
-        }
+        { topics.map(link) }
       </ul>
     </nav>
   );
