@@ -1,7 +1,7 @@
 const topics = [
   'puppies', 
   'kittens',
-  'candy',
+  'pets',
 ]
 
 export default topics;

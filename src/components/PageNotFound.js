@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Pagination from './Pagination';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const NotFound = () => {
         <button onClick={()=>navigate(-1)}>Go Back</button>
         <button onClick={()=>navigate('/')}>Go Home</button>
       </div>
+      <Pagination />
     </div>
   );
 }

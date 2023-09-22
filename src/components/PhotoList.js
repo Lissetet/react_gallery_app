@@ -1,7 +1,6 @@
 import Photo from './Photo';
 import NotFound from './NotFound';
 
-
 const PhotoList = ({photos, loading}) => {
   return (
     <ul>
