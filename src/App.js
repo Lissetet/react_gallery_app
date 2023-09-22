@@ -1,3 +1,5 @@
+import { Route, Routes, Navigate } from "react-router-dom";
+
 import SearchForm from "./components/SearchForm";
 import Nav from "./components/Nav";
 import Gallery from "./components/Gallery";
@@ -9,7 +11,10 @@ function App() {
     <div className="container">
       <SearchForm />
       <Nav />
-      <Gallery />
+      <Routes>
+        <Route index element={<Navigate replace to="dogs" />} />
+        <Route path="/:topic" element={<Gallery />} />
+      </Routes>
     </div>
   );
 }

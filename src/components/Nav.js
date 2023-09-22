@@ -1,10 +1,12 @@
+import { NavLink } from "react-router-dom";
+
+const topics = ['cats', 'dogs', 'computers'];
+
 const Nav = () => {
   return (
     <nav class="main-nav">
       <ul>
-        <li><a href='#'>Cats</a></li>
-        <li><a href='#'>Dogs</a></li>
-        <li><a href='#'>Computers</a></li>
+        { topics.map(topic => <li><NavLink to={`/${topic}`}>{topic}</NavLink></li>) }
       </ul>
     </nav>
   );
